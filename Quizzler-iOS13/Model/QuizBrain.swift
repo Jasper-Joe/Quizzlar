@@ -23,8 +23,10 @@ class QuizBrain {
                  Question(q: "Chocolate affects a dog's heart and nervous system; a few ounces are enough to kill a small dog.", a: "True")
 ]
     var questionNumber : Int = -1
+    var curScore : Int = 0
     func checkAnswer(userAnswer:String) -> Bool {
         if userAnswer == quiz[questionNumber].answer {
+            curScore += 1
             return true;
         } else {
             return false;
@@ -39,4 +41,10 @@ class QuizBrain {
         questionNumber = (questionNumber + 1) % quiz.count
         return quiz[questionNumber].text;
     }
+    
+    func getScore() -> Int {
+        return curScore
+    }
+    
+    
 }
